@@ -1,0 +1,27 @@
+GitHub Integration
+
+1) Download GitHub software from site
+2) Open Git Shell
+3) "git clone PROJECT_NAME"
+4) Project is now downloaded onto your machine
+5) Git Commands:
+	"git clone"				downloads a new repository from link provided in the directory
+	"git status"			shows any files or changes that are not synced with the server
+	"git add ..."			adds change to be committed (does not commit to server)
+								"git add ." adds everything in current directory
+								"git add -A" adds all changes
+	"git commit"			locks changes from add into repository, not synced to server
+								"git commit -m """ adds a message in quotes
+								if you commit without a message, you will need to press esc, then ":wq" to continue
+	"git push"				syncs changes with central git server
+	"git pull"				pulls changes from central git server
+6) Make sure you do a git pull before working each session to get latest changes
+
+GitHub and Branching
+1) Used to experiment with new changes without risk of ruining main project
+2) Think of this a making a backup of the main project
+3) Branching Commands:
+		"git branch"			lists all branches (copies) of the git repository
+		"git branch ..."		creates a copy of the master branch named "..."
+		"git checkout ..."		switches you to the listed branch, changes do NOT affect master branch
+		"git merge ..."			takes all changes from ... (usually master branch) and merges them into your branch
