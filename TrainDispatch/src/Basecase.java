@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Basiccase {
+public class Basecase {
 
   public static int[] start(int numofstations){
 	Random r = new Random();
