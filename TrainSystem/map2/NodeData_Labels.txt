@@ -1,0 +1,13 @@
+166,86,0,Station 0
+383,85,1,Station 1
+484,215,2,Station 2
+164,244,3,Station 3
+542,388,4,Station 4
+379,386,5,Station 5
+229,388,6,Station 6
+98,514,7,Station 7
+292,512,8,Station 8
+540,541,9,Station 9
+707,86,10,Station 10
+745,386,11,Station 11
+784,538,12,Station 12

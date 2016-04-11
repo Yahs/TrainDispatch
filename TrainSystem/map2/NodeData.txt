@@ -1,0 +1,13 @@
+166 66 10 Station 0
+383 65 10 Station 1
+484 195 10 Station 2
+164 224 10 Station 3
+542 368 10 Station 4
+379 366 10 Station 5
+229 368 10 Station 6
+98 494 10 Station 7
+292 492 10 Station 8
+540 521 10 Station 9
+707 66 10 Station 10
+745 366 10 Station 11
+784 518 10 Station 12
