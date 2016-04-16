@@ -1,5 +1,5 @@
 
-public class Station {
+public class Station<Key extends Comparable<Key>> {
   
   private int stationNum;
   private int posX;
@@ -7,6 +7,10 @@ public class Station {
   
   public Station() {
 	  
+  }
+  
+  public Station (int num) {
+	  this.stationNum = num;
   }
   
   public Station(int num, int x, int y) {

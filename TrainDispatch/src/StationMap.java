@@ -1,29 +1,29 @@
+import java.util.ArrayList;
+import java.util.List;
 
-public class StationMap {
+public class StationMap<Key extends Comparable<Key>> {
 	
-	private Station[] stations;
+	private List<Station> stations= new ArrayList<Station>();
+	private int numOfStations;
 	
 	public StationMap() {
 		
 	}
 	
 	public StationMap(int num) {
-		this.stations = new Station[num];
-	}
-	
-	public StationMap(Station[] list) {
-		this.stations = list;
-	}
-	
-	public void populateNums() {
-		int numOfStations = this.stations.length;
-		for (int i = 0; i < numOfStations; i++) {
-			this.stations[i].setNum(i);
+		for (int i = 0; i < num; i++) {
+			this.stations.add(new Station(i));
 		}
+		this.numOfStations = num;
+	}
+	
+	public StationMap(List<Station> list) {
+		this.stations = list;
+		this.numOfStations = list.size();
 	}
 	
 	public Station callStation(int num) {
-		return this.stations[num];
+		return this.stations.get(num);
 	}
 	
 	
