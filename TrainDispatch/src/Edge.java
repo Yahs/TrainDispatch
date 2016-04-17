@@ -1,4 +1,3 @@
-
 public class Edge {
 
 	private int start;
@@ -12,12 +11,19 @@ public class Edge {
 	}
 	
 	public int getStart() {
-		return start;
+		return this.start;
 	}
 	public int getEnd() {
-		return end;
+		return this.end;
 	}
 	public int getCost() {
-		return distance;
+		return this.distance;
+	}
+	
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.getStart() + "\t\t\t" + this.getEnd() + "\t\t\t"
+				+ this.getCost());
+		return new String(sb);
 	}
 }

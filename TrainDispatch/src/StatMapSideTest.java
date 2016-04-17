@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.Timer;
 
 public class StatMapSideTest {
 	
@@ -31,6 +33,15 @@ public class StatMapSideTest {
 		connections.add(map.callStation(6).getEdge(map.callStation(8)));
 		connections.add(map.callStation(7).getEdge(map.callStation(9)));
 		
+		printList(connections);
+		
 	}
+	
+	public static void printList(List<Edge> cons) {
+	    System.out.print("Start Station\t\tEnd Station\t\tCost\n");
+		for (int i = 0; i < cons.size(); i++) {
+	    	System.out.println(cons.get(i));
+	    }
+	  }
 
 }
