@@ -1,0 +1,31 @@
+
+public class StationMap {
+	
+	private Station[] stations;
+	
+	public StationMap() {
+		
+	}
+	
+	public StationMap(int num) {
+		this.stations = new Station[num];
+	}
+	
+	public StationMap(Station[] list) {
+		this.stations = list;
+	}
+	
+	public void populateNums() {
+		int numOfStations = this.stations.length;
+		for (int i = 0; i < numOfStations; i++) {
+			this.stations[i].setNum(i);
+		}
+	}
+	
+	public Station callStation(int num) {
+		return this.stations[num];
+	}
+	
+	
+
+}

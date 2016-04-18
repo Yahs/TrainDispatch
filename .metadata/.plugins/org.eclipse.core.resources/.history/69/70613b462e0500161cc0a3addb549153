@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+public class Train {
+
+	private int start;
+	private int end;
+	private int cost;
+	private int waitTime;
+	private int moves;
+	 private ArrayList<Edge> path;
+	 
+	Train (int start_, int end_, int cost_) {
+		this.start = start_;
+		this.end = end_;
+		this.cost = cost_;
+		this.waitTime = 0;
+		this.moves = 1;
+	}
+	
+	public void wait() {
+		waitTime += 1;
+		
+	}
+}
