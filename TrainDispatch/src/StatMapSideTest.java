@@ -44,5 +44,24 @@ public class StatMapSideTest {
 	    	System.out.println(cons.get(i));
 	    }
 	  }
+	
+	public Edge getNearAngleEdge(Station start, List<Edge> edges, double angle) {
+		List<Edge> connections = new ArrayList<Edge>();
+		double angleComp, angleDiff = 360.0;
+		int closest = 1000;
+		for (int i = 0; i < edges.size(); i++) {
+			if (edges.get(i).getStart() == start.getNum()) {
+				connections.add(edges.get(i));
+			}
+		}
+		for (int i = 0; i < connections.size(); i++) {
+			angleComp = connections.get(i).getAngle();
+			if (angleDiff >= Math.abs(angleComp - angle)) {
+				angleDiff = Math.abs(angleComp - angle);
+				closest = i;
+			}
+		}
+		return connections.get(closest);
+	}
 
 }

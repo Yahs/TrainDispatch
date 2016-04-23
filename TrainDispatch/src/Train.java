@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 public class Train {
 
 	private int start;
@@ -11,7 +12,8 @@ public class Train {
 	private int speed;
 	private int lastStation;
 	private int distance;
-	 private ArrayList<Edge> path;
+	private ArrayList<Edge> path;
+	private double pathAngle; 
 	 
 	Train (int start_, int end_, int cost_) {
 		this.start = start_;
@@ -48,6 +50,11 @@ public class Train {
 		}
 		return null;
  	}
+	
+	
+	public void setAngle(Station start, Station end) {
+		this.pathAngle = start.getAngle(end);
+	}
 	
 	public int getStatus() {
 		return status;
