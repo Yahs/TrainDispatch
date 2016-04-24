@@ -20,8 +20,8 @@ public class StatMapSideTest {
 		map.callStation(8).setPos(9, 1);
 		map.callStation(9).setPos(7, 9);
 		
-		connections.add(map.callStation(1).getEdge(map.callStation(9)));
-		connections.add(map.callStation(1).getEdge(map.callStation(2)));
+		connections.add(map.callStation(0).getEdge(map.callStation(1)));
+		connections.add(map.callStation(0).getEdge(map.callStation(2)));
 		connections.add(map.callStation(1).getEdge(map.callStation(3)));
 		connections.add(map.callStation(1).getEdge(map.callStation(5)));
 		connections.add(map.callStation(2).getEdge(map.callStation(3)));
@@ -32,8 +32,7 @@ public class StatMapSideTest {
 		connections.add(map.callStation(5).getEdge(map.callStation(7)));
 		connections.add(map.callStation(6).getEdge(map.callStation(8)));
 		connections.add(map.callStation(7).getEdge(map.callStation(9)));
-		connections.add(map.callStation(8).getEdge(map.callStation(1)));
-		connections.add(map.callStation(9).getEdge(map.callStation(3)));
+		
 		printList(connections);
 		
 	}
@@ -44,24 +43,5 @@ public class StatMapSideTest {
 	    	System.out.println(cons.get(i));
 	    }
 	  }
-	
-	public Edge getNearAngleEdge(Station start, List<Edge> edges, double angle) {
-		List<Edge> connections = new ArrayList<Edge>();
-		double angleComp, angleDiff = 360.0;
-		int closest = 1000;
-		for (int i = 0; i < edges.size(); i++) {
-			if (edges.get(i).getStart() == start.getNum()) {
-				connections.add(edges.get(i));
-			}
-		}
-		for (int i = 0; i < connections.size(); i++) {
-			angleComp = connections.get(i).getAngle();
-			if (angleDiff >= Math.abs(angleComp - angle)) {
-				angleDiff = Math.abs(angleComp - angle);
-				closest = i;
-			}
-		}
-		return connections.get(closest);
-	}
 
 }
