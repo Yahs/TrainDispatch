@@ -1,0 +1,8 @@
+public class Time {
+
+	
+	public Timer getStart() {
+		return time;
+	}
+
+}

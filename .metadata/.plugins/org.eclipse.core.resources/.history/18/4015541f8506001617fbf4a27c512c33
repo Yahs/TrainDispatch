@@ -1,0 +1,10 @@
+
+public class Driver {
+public static void main (String[] args) {
+	Time time = new Time();
+	time.setHours(5);
+	time.setMin(2);
+	time.setSeconds(2);
+	time.print();
+}
+}

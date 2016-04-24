@@ -1,0 +1,9 @@
+public class Timer {
+
+	Timer time = new Timer();
+	
+	public Timer getStart() {
+		return time;
+	}
+
+}

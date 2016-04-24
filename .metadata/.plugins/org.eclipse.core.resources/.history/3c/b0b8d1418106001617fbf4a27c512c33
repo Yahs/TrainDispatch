@@ -1,0 +1,17 @@
+import java.util.Date;
+import java.lang.Object;
+public class Time extends Date {
+
+	private int hr;
+	private int min;
+	private int sec;
+	
+	public Time() {
+		
+	}
+	public Time(int hours, int minutes, int seconds) {
+		hr = hours;
+		min = minutes;
+		sec = seconds;
+	}
+}
