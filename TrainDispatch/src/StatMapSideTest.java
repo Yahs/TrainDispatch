@@ -81,7 +81,7 @@ public class StatMapSideTest {
 		connections.add(map.callStation(17).getEdge(map.callStation(19), 22));
 		connections.add(map.callStation(17).getEdge(map.callStation(30), 23));
 		connections.add(map.callStation(19).getEdge(map.callStation(13), 24));
-		connections.add(map.callStation(20).getEdge(map.callStation(9), 25));
+		connections.add(map.callStation(7).getEdge(map.callStation(22), 25));
 		connections.add(map.callStation(20).getEdge(map.callStation(22), 26));
 		connections.add(map.callStation(21).getEdge(map.callStation(23), 27));
 		connections.add(map.callStation(21).getEdge(map.callStation(25), 28));
@@ -105,15 +105,34 @@ public class StatMapSideTest {
 		connections.add(map.callStation(36).getEdge(map.callStation(38), 46));
 		connections.add(map.callStation(37).getEdge(map.callStation(39), 47));
 		connections.add(map.callStation(39).getEdge(map.callStation(33), 48));
+		connections.add(map.callStation(6).getEdge(map.callStation(30), 49));
+		connections.add(map.callStation(19).getEdge(map.callStation(38), 50));
+		connections.add(map.callStation(9).getEdge(map.callStation(28), 51));
+		connections.add(map.callStation(26).getEdge(map.callStation(29), 52));
+		connections.add(map.callStation(31).getEdge(map.callStation(28), 53));
+		connections.add(map.callStation(0).getEdge(map.callStation(1), 54));
+		connections.add(map.callStation(36).getEdge(map.callStation(39), 55));
+		connections.add(map.callStation(5).getEdge(map.callStation(20), 56));
+		connections.add(map.callStation(20).getEdge(map.callStation(21), 57));
+		connections.add(map.callStation(26).getEdge(map.callStation(35), 58));
+		connections.add(map.callStation(30).getEdge(map.callStation(33), 59));
+		connections.add(map.callStation(16).getEdge(map.callStation(38), 60));
+		connections.add(map.callStation(0).getEdge(map.callStation(3), 61));
+		connections.add(map.callStation(12).getEdge(map.callStation(18), 62));
+		connections.add(map.callStation(3).getEdge(map.callStation(30), 63));
+		connections.add(map.callStation(30).getEdge(map.callStation(28), 64));
+		connections.add(map.callStation(28).getEdge(map.callStation(24), 65));
+		connections.add(map.callStation(29).getEdge(map.callStation(35), 66));
+		
 		int[] costBase = new int[500];
 		int[] costOpt = new int[500];
-		int avgBase = 0, avgOpt = 0;
+		int avgBase = 0, avgOpt = 0, bMin = 1000, bMax = 0, oMin = 1000, oMax = 0;
 		int[] edgesMovedB = new int[connections.size()];
 		int[] edgesMoved = new int[connections.size()];
-		StdDraw.setCanvasSize(1500, 900);
+		StdDraw.setCanvasSize(1500, 1000);
 		StdDraw.clear(new Color(220, 220, 220));
 		StdDraw.setXscale(0, 1500);
-		StdDraw.setYscale(0, 900);
+		StdDraw.setYscale(0, 1000);
 		sePairs = getStartEndList(map, connections);
 		System.out.println(sePairs);
 		edgesMovedB = base(sePairs, connections, map, costBase);
@@ -126,9 +145,27 @@ public class StatMapSideTest {
 		for (int i = 0; i < 500; i++) {
 			avgOpt += costOpt[i];
 			avgBase += costBase[i];
+			if (costOpt[i] > oMax) {
+				oMax = costOpt[i];
+			}
+			if (costOpt[i] < oMin) {
+				oMin = costOpt[i];
+			}
+			if (costBase[i] > bMax) {
+				bMax = costBase[i];
+			}
+			if (costBase[i] < bMin) {
+				bMin = costBase[i];
+			}
 		}
 		avgOpt /= 500;
 		avgBase /= 500;
+		StdDraw.text(375, 825, "::Optimized Case::");
+		StdDraw.text(375, 800, "Average Cost: " + avgOpt);
+		StdDraw.text(375, 775, "Cost Range: " + oMin + " - " + oMax);
+		StdDraw.text(1125, 825, "::Base Case::");
+		StdDraw.text(1125, 800, "Average Cost: " + avgBase);
+		StdDraw.text(1125, 775, "Cost Range: " + bMin + " - " + bMax);
 		System.out.println("Average optimized cost: " + avgOpt);
 		System.out.println("Average base cost: " + avgBase);
 		
@@ -148,9 +185,9 @@ public class StatMapSideTest {
 		int closest = -1;
 		for (int i = 0; i < start.getEdges().size(); i++) {
 			edgeComp = start.getEdge(i);
-			angleComp = edgeComp.getStart().getAngle(edgeComp.getEnd());
+			angleComp = edgeComp.getStart(start).getAngle(edgeComp.getEnd(start));
 			if (Math.abs(angleDiff - angle) > Math.abs(angleComp - angle)) {
-				if (!(edgeComp.getEnd().ifVisit() || edgeComp.checkVisited())) {
+				if (!(edgeComp.getEnd(start).ifVisit() || edgeComp.checkVisited())) {
 					angleDiff = angleComp;
 					closest = i;
 				}
@@ -184,6 +221,24 @@ public class StatMapSideTest {
 			String s = "" + i;
 			StdDraw.text(x, y, s);
 		}
+		StdDraw.setPenColor(StdDraw.RED);
+		StdDraw.filledRectangle(25, 975, 12.5, 12.5);
+		StdDraw.textLeft(40, 975, "High Traffic");
+		StdDraw.setPenColor(StdDraw.ORANGE);
+		StdDraw.filledRectangle(25, 935, 12.5, 12.5);
+		StdDraw.textLeft(40, 935, "Med-High Traffic");
+		StdDraw.setPenColor(StdDraw.YELLOW);
+		StdDraw.filledRectangle(25, 895, 12.5, 12.5);
+		StdDraw.textLeft(40, 895, "Med Traffic");
+		StdDraw.setPenColor(StdDraw.GREEN);
+		StdDraw.filledRectangle(185, 975, 12.5, 12.5);
+		StdDraw.textLeft(200, 975, "Low-Med Traffic");
+		StdDraw.setPenColor(StdDraw.BLUE);
+		StdDraw.filledRectangle(185, 935, 12.5, 12.5);
+		StdDraw.textLeft(200, 935, "Low Traffic");
+		StdDraw.setPenColor(StdDraw.BLACK);
+		StdDraw.filledRectangle(185, 895, 12.5, 12.5);
+		StdDraw.textLeft(200, 895, "No Traffic");
 	}
 	
 	public static void drawHeatMap(int[] lines, int paths, List<Edge> e, StationMap s) {
@@ -197,22 +252,22 @@ public class StatMapSideTest {
 			y1 = s.callStation(e.get(i).getEnd().getNum()).getY() * 37.5;
 			stPosx = 0.5 * (x1 - x) + x + 15;
 			stPosy = 0.5 * (y1 - y) + y - 15;
-			if (lines[i] >= paths / 20) {
+			if (lines[i] >= paths / 8) {
 				StdDraw.setPenColor(StdDraw.RED);
 				StdDraw.line(x, y, x1, y1);
 				String st = "" + e.get(i).getCost();
 				StdDraw.text(stPosx, stPosy, st);
-			} else if (lines[i] >= paths / 40) {
+			} else if (lines[i] >= paths / 20) {
 				StdDraw.setPenColor(StdDraw.ORANGE);
 				StdDraw.line(x, y, x1, y1);
 				String st = "" + e.get(i).getCost();
 				StdDraw.text(stPosx, stPosy, st);
-			} else if (lines[i] >= paths / 60) {
+			} else if (lines[i] >= paths / 35) {
 				StdDraw.setPenColor(StdDraw.YELLOW);
 				StdDraw.line(x, y, x1, y1);
 				String st = "" + e.get(i).getCost();
 				StdDraw.text(stPosx, stPosy, st);
-			} else if (lines[i] >= paths / 80) {
+			} else if (lines[i] >= paths / 50) {
 				StdDraw.setPenColor(StdDraw.GREEN);
 				StdDraw.line(x, y, x1, y1);
 				String st = "" + e.get(i).getCost();
@@ -242,22 +297,22 @@ public class StatMapSideTest {
 			y1 = s.callStation(e.get(i).getEnd().getNum()).getY() * 37.5;
 			stPosx = 0.5 * (x1 - x) + x + 15;
 			stPosy = 0.5 * (y1 - y) + y - 15;
-			if (lines[i] >= paths / 20) {
+			if (lines[i] >= paths / 8) {
 				StdDraw.setPenColor(StdDraw.RED);
 				StdDraw.line(x, y, x1, y1);
 				String st = "" + e.get(i).getCost();
 				StdDraw.text(stPosx, stPosy, st);
-			} else if (lines[i] >= paths / 40) {
+			} else if (lines[i] >= paths / 20) {
 				StdDraw.setPenColor(StdDraw.ORANGE);
 				StdDraw.line(x, y, x1, y1);
 				String st = "" + e.get(i).getCost();
 				StdDraw.text(stPosx, stPosy, st);
-			} else if (lines[i] >= paths / 60) {
+			} else if (lines[i] >= paths / 35) {
 				StdDraw.setPenColor(StdDraw.YELLOW);
 				StdDraw.line(x, y, x1, y1);
 				String st = "" + e.get(i).getCost();
 				StdDraw.text(stPosx, stPosy, st);
-			} else if (lines[i] >= paths / 80) {
+			} else if (lines[i] >= paths / 50) {
 				StdDraw.setPenColor(StdDraw.GREEN);
 				StdDraw.line(x, y, x1, y1);
 				String st = "" + e.get(i).getCost();
@@ -275,6 +330,7 @@ public class StatMapSideTest {
 			}
 		}
 	}
+	
 	
 	public static List<Pair> getStartEndList(StationMap s, List<Edge> e) {
 		int paths = 500;
@@ -300,6 +356,7 @@ public class StatMapSideTest {
 		Station end = new Station();
 		for (int i = 0; i < se.size(); i++) {
 			clearPath(edges);
+			clearStations(s);
 			for (int j = 0; j < s.getStations().size(); j++) {
 				s.callStation(j).visit(false);
 			}
@@ -317,7 +374,7 @@ public class StatMapSideTest {
 					edgeTaken[current.getEdge(pathEdge).getNum()]++;
 					cost[i] += current.getEdge(pathEdge).getCost();	
 					current.getEdge(pathEdge).visit(true);
-					current = current.getEdge(pathEdge).getEnd();
+					current = current.getEdge(pathEdge).getEnd(current);
 				} else {
 					break;
 				}
@@ -354,7 +411,7 @@ public class StatMapSideTest {
 				s.getEdge(next).visit(true);
 				cost[i] += s.getEdge(next).getCost();
 				edgeTaken[s.getEdge(next).getNum()]++;
-				s = s.getEdge(next).getEnd();
+				s = s.getEdge(next).getEnd(s);
 				if (s.checkVisits()) {
 					break;
 				}
