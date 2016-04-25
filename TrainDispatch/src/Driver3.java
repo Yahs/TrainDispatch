@@ -99,12 +99,14 @@ public class Driver3 {
 		}
 		avgOpt /= 500;
 		avgBase /= 500;
-		StdDraw.text(375, 450, "::Optimized Case::");
-		StdDraw.text(375, 425, "Average Cost: " + avgOpt);
-		StdDraw.text(375, 400, "Cost Range: " + oMin + " - " + oMax);
-		StdDraw.text(1125, 450, "::Base Case::");
-		StdDraw.text(1125, 425, "Average Cost: " + avgBase);
-		StdDraw.text(1125, 400, "Cost Range: " + bMin + " - " + bMax);
+		StdDraw.text(375, 460, "::Optimized Case::");
+		StdDraw.text(375, 435, "Average Cost: " + avgOpt);
+		StdDraw.text(375, 410, "Cost Range: " + oMin + " - " + oMax);
+		StdDraw.text(375, 385, "Success Rate: " + (double)costOpt[500] / 5.0 + "%");
+		StdDraw.text(1125, 460, "::Base Case::");
+		StdDraw.text(1125, 435, "Average Cost: " + avgBase);
+		StdDraw.text(1125, 410, "Cost Range: " + bMin + " - " + bMax);
+		StdDraw.text(1125, 385, "Success Rate: " + (double)costBase[500] / 5.0 + "%");
 		System.out.println("Average optimized cost: " + avgOpt);
 		System.out.println("Average base cost: " + avgBase);
 		System.out.println(costOpt[500]);
@@ -181,9 +183,11 @@ public class Driver3 {
 		StdDraw.filledRectangle(185, 520, 12.5, 12.5);
 		StdDraw.textLeft(200, 520, "No Traffic");
 		StdDraw.textLeft(1300, 550, "Station Start Range:");
-		StdDraw.textRight(1450, 525, "0 - 5");
+		StdDraw.textRight(1450, 525, "0 - 4");
 		StdDraw.textLeft(1300, 500, "Station End Range:");
-		StdDraw.textRight(1450, 475, "20 - 39");
+		StdDraw.textRight(1450, 475, "10 - 19");
+		StdDraw.text(750, 425, "Route is successful if it reaches end station.");
+		StdDraw.text(750, 400, "Train will end movement if it cannot take an unmarked path.");
 	}
 	
 	public static void drawHeatMap(int[] lines, int paths, List<Edge> e, StationMap s) {
