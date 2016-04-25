@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Timer;
 
-public class Driver {
+public class Driver3 {
 	
 	private static Random rand = new Random();
 		
@@ -13,7 +13,7 @@ public class Driver {
 		
 		List<Pair> sePairs = new ArrayList<Pair>();
 		rand.setSeed(666777);
-		StationMap map = new StationMap(40);
+		StationMap map = new StationMap(20);
 		List<Edge> connections = new ArrayList<Edge>();
 		map.callStation(0).setPos(1, 1);
 		map.callStation(1).setPos(1, 4);
@@ -35,26 +35,6 @@ public class Driver {
 		map.callStation(17).setPos(13, 9);
 		map.callStation(18).setPos(19, 1);
 		map.callStation(19).setPos(17, 9);
-		map.callStation(20).setPos(1, 11);
-		map.callStation(21).setPos(1, 14);
-		map.callStation(22).setPos(4, 11);
-		map.callStation(23).setPos(5, 15);
-		map.callStation(24).setPos(6, 13);
-		map.callStation(25).setPos(2, 17);
-		map.callStation(26).setPos(8, 16);
-		map.callStation(27).setPos(3, 19);
-		map.callStation(28).setPos(9, 11);
-		map.callStation(29).setPos(7, 19);
-		map.callStation(30).setPos(11, 11);
-		map.callStation(31).setPos(11, 14);
-		map.callStation(32).setPos(14, 11);
-		map.callStation(33).setPos(15, 15);
-		map.callStation(34).setPos(16, 13);
-		map.callStation(35).setPos(12, 17);
-		map.callStation(36).setPos(18, 16);
-		map.callStation(37).setPos(13, 19);
-		map.callStation(38).setPos(19, 11);
-		map.callStation(39).setPos(17, 19);
 		
 		connections.add(map.callStation(8).getEdge(map.callStation(10), 0));
 		connections.add(map.callStation(0).getEdge(map.callStation(2), 1));
@@ -79,51 +59,8 @@ public class Driver {
 		connections.add(map.callStation(15).getEdge(map.callStation(17), 20));
 		connections.add(map.callStation(16).getEdge(map.callStation(18), 21));
 		connections.add(map.callStation(17).getEdge(map.callStation(19), 22));
-		connections.add(map.callStation(17).getEdge(map.callStation(30), 23));
+		connections.add(map.callStation(17).getEdge(map.callStation(9), 23));
 		connections.add(map.callStation(15).getEdge(map.callStation(16), 24));
-		connections.add(map.callStation(7).getEdge(map.callStation(22), 25));
-		connections.add(map.callStation(20).getEdge(map.callStation(22), 26));
-		connections.add(map.callStation(21).getEdge(map.callStation(23), 27));
-		connections.add(map.callStation(21).getEdge(map.callStation(25), 28));
-		connections.add(map.callStation(22).getEdge(map.callStation(24), 29));
-		connections.add(map.callStation(23).getEdge(map.callStation(25), 30));
-		connections.add(map.callStation(23).getEdge(map.callStation(24), 31));
-		connections.add(map.callStation(24).getEdge(map.callStation(26), 32));
-		connections.add(map.callStation(25).getEdge(map.callStation(27), 33));
-		connections.add(map.callStation(26).getEdge(map.callStation(28), 34));
-		connections.add(map.callStation(27).getEdge(map.callStation(29), 35));
-		connections.add(map.callStation(29).getEdge(map.callStation(23), 36));
-		connections.add(map.callStation(30).getEdge(map.callStation(9), 37));
-		connections.add(map.callStation(30).getEdge(map.callStation(32), 38));
-		connections.add(map.callStation(31).getEdge(map.callStation(33), 39));
-		connections.add(map.callStation(31).getEdge(map.callStation(35), 40));
-		connections.add(map.callStation(32).getEdge(map.callStation(34), 41));
-		connections.add(map.callStation(33).getEdge(map.callStation(35), 42));
-		connections.add(map.callStation(33).getEdge(map.callStation(34), 43));
-		connections.add(map.callStation(34).getEdge(map.callStation(36), 44));
-		connections.add(map.callStation(35).getEdge(map.callStation(37), 45));
-		connections.add(map.callStation(36).getEdge(map.callStation(38), 46));
-		connections.add(map.callStation(37).getEdge(map.callStation(39), 47));
-		connections.add(map.callStation(39).getEdge(map.callStation(33), 48));
-		connections.add(map.callStation(6).getEdge(map.callStation(30), 49));
-		connections.add(map.callStation(19).getEdge(map.callStation(38), 50));
-		connections.add(map.callStation(9).getEdge(map.callStation(28), 51));
-		connections.add(map.callStation(26).getEdge(map.callStation(29), 52));
-		connections.add(map.callStation(31).getEdge(map.callStation(28), 53));
-		connections.add(map.callStation(0).getEdge(map.callStation(1), 54));
-		connections.add(map.callStation(36).getEdge(map.callStation(39), 55));
-		connections.add(map.callStation(5).getEdge(map.callStation(20), 56));
-		connections.add(map.callStation(20).getEdge(map.callStation(21), 57));
-		connections.add(map.callStation(26).getEdge(map.callStation(35), 58));
-		connections.add(map.callStation(30).getEdge(map.callStation(33), 59));
-		connections.add(map.callStation(16).getEdge(map.callStation(38), 60));
-		connections.add(map.callStation(0).getEdge(map.callStation(3), 61));
-		connections.add(map.callStation(12).getEdge(map.callStation(18), 62));
-		connections.add(map.callStation(3).getEdge(map.callStation(30), 63));
-		connections.add(map.callStation(30).getEdge(map.callStation(28), 64));
-		connections.add(map.callStation(28).getEdge(map.callStation(24), 65));
-		connections.add(map.callStation(29).getEdge(map.callStation(35), 66));
-		connections.add(map.callStation(6).getEdge(map.callStation(15), 67));
 		
 		int[] costBase = new int[501];
 		int[] costOpt = new int[501];
@@ -131,10 +68,10 @@ public class Driver {
 		int[] edgesMovedB = new int[connections.size()];
 		int[] edgesMoved = new int[connections.size()];
 		int oSucc = 0, bSucc = 0;
-		StdDraw.setCanvasSize(1500, 1000);
+		StdDraw.setCanvasSize(1500, 625);
 		StdDraw.clear(new Color(220, 220, 220));
 		StdDraw.setXscale(0, 1500);
-		StdDraw.setYscale(0, 1000);
+		StdDraw.setYscale(0, 625);
 		sePairs = getStartEndList(map, connections);
 		System.out.println(sePairs);
 		edgesMovedB = base(sePairs, connections, map, costBase);
@@ -142,8 +79,8 @@ public class Driver {
 		drawHeatMap(edgesMoved, 500, connections, map);
 		drawHeatMap2(edgesMovedB, 500, connections, map);
 		drawMap(map);
-		StdDraw.line(750, 0, 750, 750);
-		StdDraw.line(0, 750, 1500, 750);
+		StdDraw.line(750, 0, 750, 375);
+		StdDraw.line(0, 375, 1500, 375);
 		for (int i = 0; i < 500; i++) {
 			avgOpt += costOpt[i];
 			avgBase += costBase[i];
@@ -162,12 +99,12 @@ public class Driver {
 		}
 		avgOpt /= 500;
 		avgBase /= 500;
-		StdDraw.text(375, 825, "::Optimized Case::");
-		StdDraw.text(375, 800, "Average Cost: " + avgOpt);
-		StdDraw.text(375, 775, "Cost Range: " + oMin + " - " + oMax);
-		StdDraw.text(1125, 825, "::Base Case::");
-		StdDraw.text(1125, 800, "Average Cost: " + avgBase);
-		StdDraw.text(1125, 775, "Cost Range: " + bMin + " - " + bMax);
+		StdDraw.text(375, 450, "::Optimized Case::");
+		StdDraw.text(375, 425, "Average Cost: " + avgOpt);
+		StdDraw.text(375, 400, "Cost Range: " + oMin + " - " + oMax);
+		StdDraw.text(1125, 450, "::Base Case::");
+		StdDraw.text(1125, 425, "Average Cost: " + avgBase);
+		StdDraw.text(1125, 400, "Cost Range: " + bMin + " - " + bMax);
 		System.out.println("Average optimized cost: " + avgOpt);
 		System.out.println("Average base cost: " + avgBase);
 		System.out.println(costOpt[500]);
@@ -205,7 +142,7 @@ public class Driver {
 	
 	public static void drawMap(StationMap stations) {
 		double x, y;
-		for (int i = 0; i < 40; i++) {
+		for (int i = 0; i < 20; i++) {
 			x = stations.callStation(i).getX() * 37.5;
 			y = stations.callStation(i).getY() * 37.5;
 			StdDraw.setPenColor(StdDraw.WHITE);
@@ -215,7 +152,7 @@ public class Driver {
 			String s = "" + i;
 			StdDraw.text(x, y, s);
 		}
-		for (int i = 0; i < 40; i++) {
+		for (int i = 0; i < 20; i++) {
 			x = (stations.callStation(i).getX() * 37.5) + 750;
 			y = (stations.callStation(i).getY() * 37.5);
 			StdDraw.setPenColor(StdDraw.WHITE);
@@ -226,27 +163,27 @@ public class Driver {
 			StdDraw.text(x, y, s);
 		}
 		StdDraw.setPenColor(StdDraw.RED);
-		StdDraw.filledRectangle(25, 975, 12.5, 12.5);
-		StdDraw.textLeft(40, 975, "High Traffic");
+		StdDraw.filledRectangle(25, 600, 12.5, 12.5);
+		StdDraw.textLeft(40, 600, "High Traffic");
 		StdDraw.setPenColor(StdDraw.ORANGE);
-		StdDraw.filledRectangle(25, 935, 12.5, 12.5);
-		StdDraw.textLeft(40, 935, "Med-High Traffic");
+		StdDraw.filledRectangle(25, 560, 12.5, 12.5);
+		StdDraw.textLeft(40, 560, "Med-High Traffic");
 		StdDraw.setPenColor(StdDraw.YELLOW);
-		StdDraw.filledRectangle(25, 895, 12.5, 12.5);
-		StdDraw.textLeft(40, 895, "Med Traffic");
+		StdDraw.filledRectangle(25, 520, 12.5, 12.5);
+		StdDraw.textLeft(40, 520, "Med Traffic");
 		StdDraw.setPenColor(StdDraw.GREEN);
-		StdDraw.filledRectangle(185, 975, 12.5, 12.5);
-		StdDraw.textLeft(200, 975, "Low-Med Traffic");
+		StdDraw.filledRectangle(185, 600, 12.5, 12.5);
+		StdDraw.textLeft(200, 600, "Low-Med Traffic");
 		StdDraw.setPenColor(StdDraw.BLUE);
-		StdDraw.filledRectangle(185, 935, 12.5, 12.5);
-		StdDraw.textLeft(200, 935, "Low Traffic");
+		StdDraw.filledRectangle(185, 560, 12.5, 12.5);
+		StdDraw.textLeft(200, 560, "Low Traffic");
 		StdDraw.setPenColor(StdDraw.BLACK);
-		StdDraw.filledRectangle(185, 895, 12.5, 12.5);
-		StdDraw.textLeft(200, 895, "No Traffic");
-		StdDraw.textLeft(1300, 925, "Station Start Range:");
-		StdDraw.textRight(1450, 900, "0 - 5");
-		StdDraw.textLeft(1300, 875, "Station End Range:");
-		StdDraw.textRight(1450, 850, "20 - 39");
+		StdDraw.filledRectangle(185, 520, 12.5, 12.5);
+		StdDraw.textLeft(200, 520, "No Traffic");
+		StdDraw.textLeft(1300, 550, "Station Start Range:");
+		StdDraw.textRight(1450, 525, "0 - 5");
+		StdDraw.textLeft(1300, 500, "Station End Range:");
+		StdDraw.textRight(1450, 475, "20 - 39");
 	}
 	
 	public static void drawHeatMap(int[] lines, int paths, List<Edge> e, StationMap s) {
@@ -345,8 +282,8 @@ public class Driver {
 		int start, end;
 		List<Pair> out = new ArrayList<Pair>();
 		for (int i = 0; i < paths; i++) {
-			start = rand.nextInt(6);
-			end = rand.nextInt(20) + 20;
+			start = rand.nextInt(5);
+			end = rand.nextInt(10) + 10;
 			while (start == end) {
 				end = rand.nextInt(40);
 			}
