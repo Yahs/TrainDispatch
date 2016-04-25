@@ -21,6 +21,18 @@ public class Edge {
 	public Station getEnd() {
 		return this.end;
 	}
+	public Station getStart(Station s) {
+		if (s.getNum() == this.getNum()) {
+			return this.end;
+		}
+		return this.start;
+	}
+	public Station getEnd(Station s) {
+		if (s.getNum() == this.getNum()) {
+			return this.start;
+		}
+		return this.end;
+	}
 	public int getCost() {
 		return this.distance;
 	}
