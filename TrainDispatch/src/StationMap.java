@@ -26,6 +26,8 @@ public class StationMap<Key extends Comparable<Key>> {
 		return this.stations.get(num);
 	}
 	
-	
+	public List<Station> getStations() {
+		return this.stations;
+	}
 
 }

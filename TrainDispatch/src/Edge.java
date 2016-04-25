@@ -1,23 +1,40 @@
 public class Edge {
 
-	private int start;
-	private int end;
+	private Station start;
+	private Station end;
 	private int distance;
+	private boolean visited = false;
+	private int num;
 	
-	public Edge (int start, int end, int distance) {
+	public Edge (Station start, Station end, int distance, int number) {
 		this.start = start;
 		this.distance = distance;
 		this.end = end;
+		this.num = number;
+		this.start.addEdge(this);
+		this.end.addEdge(this);
 	}
 	
-	public int getStart() {
+	public Station getStart() {
 		return this.start;
 	}
-	public int getEnd() {
+	public Station getEnd() {
 		return this.end;
 	}
 	public int getCost() {
 		return this.distance;
+	}
+	
+	public int getNum() {
+		return this.num;
+	}
+	
+	public boolean checkVisited() {
+		return this.visited;
+	}
+	
+	public void visit(boolean tf) {
+		this.visited = tf;
 	}
 	
 	public String toString(){
